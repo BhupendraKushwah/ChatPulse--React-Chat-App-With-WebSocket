@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ChatPulse--React-Chat-App-With-WebSocket/static/css/main.361cb352.css",
+    "main.js": "/ChatPulse--React-Chat-App-With-WebSocket/static/js/main.9a334821.js",
+    "static/js/787.5a1e74c5.chunk.js": "/ChatPulse--React-Chat-App-With-WebSocket/static/js/787.5a1e74c5.chunk.js",
+    "index.html": "/ChatPulse--React-Chat-App-With-WebSocket/index.html",
+    "main.361cb352.css.map": "/ChatPulse--React-Chat-App-With-WebSocket/static/css/main.361cb352.css.map",
+    "main.9a334821.js.map": "/ChatPulse--React-Chat-App-With-WebSocket/static/js/main.9a334821.js.map",
+    "787.5a1e74c5.chunk.js.map": "/ChatPulse--React-Chat-App-With-WebSocket/static/js/787.5a1e74c5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.361cb352.css",
+    "static/js/main.9a334821.js"
+  ]
+}
