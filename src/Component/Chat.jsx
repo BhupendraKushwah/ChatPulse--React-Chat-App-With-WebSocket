@@ -18,7 +18,7 @@ const Chat = ({ socket, room, username }) => {
           new Date(Date.now()).getMinutes(),
       };
       await socket.emit("send_message", messageData);
-      setCurrentMessage("")
+      setCurrentMessage("");
     }
   };
 
@@ -32,7 +32,7 @@ const Chat = ({ socket, room, username }) => {
       // Display a user join message
       const joinMessage = {
         author: "System",
-        message: `${data} joined the room`,
+        message: `${data === username ? "you" : data} joined the room`,
         time:
           new Date(Date.now()).getHours() +
           ":" +
@@ -60,7 +60,6 @@ const Chat = ({ socket, room, username }) => {
       <div className="chat-body">
         <ScrollToBottom className="message-container">
           {messageList.map((messageContent, index) => (
-              
             <div
               key={index}
               className={`message ${
@@ -69,12 +68,22 @@ const Chat = ({ socket, room, username }) => {
               id={username === messageContent.author ? "you" : "other"}
             >
               <div>
-                <div className={`${ messageContent.type === "join"?'newUser':"message-content "}`}>
+                <div
+                  className={`${
+                    messageContent.type === "join"
+                      ? "newUser"
+                      : "message-content "
+                  }`}
+                >
                   <p>{messageContent.message}</p>
                 </div>
                 <div className="message-meta">
-                  <p id="time">{messageContent.type !== "join"&&messageContent.time}</p>
-                  <p id="author">{messageContent.type !== "join"&&messageContent.author}</p>
+                  <p id="time">
+                    {messageContent.type !== "join" && messageContent.time}
+                  </p>
+                  <p id="author">
+                    {messageContent.type !== "join" && messageContent.author}
+                  </p>
                 </div>
               </div>
             </div>
@@ -89,6 +98,7 @@ const Chat = ({ socket, room, username }) => {
           onChange={(event) => {
             setCurrentMessage(event.target.value);
           }}
+          onKeyPress={(e) => e.key === "Enter" && sendMsg()}
         />
         <button onClick={sendMsg}>&#9658;</button>
       </div>
